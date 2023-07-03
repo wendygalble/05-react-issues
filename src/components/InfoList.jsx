@@ -1,9 +1,13 @@
-const InfoList = ({ id, title, login, url }) => {
+const InfoList = ({ id, title, url }) => {
+  const handleIssueClick = () => {
+    const vinculo = 'html_url'
+  }
+
   return (
     <ul className='list-group'>
-      <h1 className='list-group-item'>{title}</h1>
+      <button className='vinculo' onClick={handleIssueClick}>{title}</button>
+      <li className='list-group-item'>ID: {id}</li>
       <li className='list-group-item'>{url}</li>
-      <li className='list-group-item'>{login}</li>
     </ul>
 
   )
