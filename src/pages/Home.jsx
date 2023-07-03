@@ -11,6 +11,10 @@ const Home = () => {
     setSearchTerm(event.target.value)
   }
 
+  const filteredData = data.filter((item) => {
+    return item.title.toLowerCase().includes(searchTerm.toLowerCase())
+  })
+
   useEffect(() => {
     fetch(myRequest)
       .then((response) => {
@@ -28,7 +32,7 @@ const Home = () => {
       <SearchBar handleSearchChange={handleSearch} />
       <div className='row'>
         {
-            data.map((item) => (
+            filteredData.map((item) => (
               <InfoList key={item.id} {...item} />
             ))
         }
