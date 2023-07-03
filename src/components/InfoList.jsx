@@ -1,19 +1,9 @@
-const InfoList = ({ id, title, node_id }) => {
-  const handleIssueClick = () => {
-    const link = 'html_url'
-
-    const encodedLink = encodeURI(link)
-
-    const endpoint = 'https://api.github.com/repos/facebook/react/issues'
-
-    window.open(endpoint)
-  }
-
+const InfoList = ({ id, title, user, html_url }) => {
   return (
     <ul className='list-group'>
-      <button className='vinculo' onClick={handleIssueClick}>{title}</button>
+      <a href={html_url}>{title}</a>
       <li className='list-group-item'>ID: {id}</li>
-      <li className='list-group-item'>Usuario:{node_id}</li>
+      <li className='list-group-item'>Usuario: {user.login}</li>
     </ul>
 
   )
